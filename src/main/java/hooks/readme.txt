@@ -2,3 +2,10 @@
 放到hive/lib目录下：然后设置
     set hive.exec.post.hooks=org.apache.hadoop.hive.ql.hooks.LineageLogger,hooks.CustomLineageToMysql 即可使用.
     这里一定要设置两个钩子，一个是自带的，一个是自定义的。至于为什么：查看 https://cloud.tencent.com/developer/ask/235118
+
+如果想实现永久设置，则需要 vim hive-site.xml
+
+ <property>
+    <name>hive.exec.post.hooks</name>
+    <value>org.apache.hadoop.hive.ql.hooks.LineageLogger,hooks.CustomLineageToMysql</value>
+ </property>
